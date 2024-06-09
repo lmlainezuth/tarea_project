@@ -1,0 +1,22 @@
+<!-- ttarea/templates/ttarea/lista_tareas.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar Tarea</button>
+    </form>
+    <ul>
+        {% for tarea in tareas %}
+            <li>{{ tarea.titulo }} - {{ tarea.descripcion }} - Completada: {{ tarea.completada }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
